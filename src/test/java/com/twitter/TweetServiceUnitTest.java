@@ -3,7 +3,6 @@ package com.twitter;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -20,7 +19,7 @@ import com.twitter.service.impl.UserServiceImpl;
 
 import reactor.core.publisher.Mono;
 
-public class TweetServiceUnitTest {
+class TweetServiceUnitTest {
 
 	private static TweetServiceImpl tweetService;
 
@@ -45,7 +44,7 @@ public class TweetServiceUnitTest {
 		when(userService.retrieveUserById(TEST_USER_ID)).thenReturn(Mono.just(TEST_USER));
 		when(userService.updateUser(any())).thenReturn(Mono.just(TEST_USER));
 		when(tweetRepository.insert(any(Tweet.class))).thenReturn(Mono.just(TEST_TWEET));
-//		when(tweetRepository.findById(((String)any())).thenReturn(Mono.just(TEST_TWEET)));
+		// when(tweetRepository.findById(((String)any())).thenReturn(Mono.just(TEST_TWEET)));
 
 		tweetService = new TweetServiceImpl(userService, tweetRepository);
 	}
@@ -62,9 +61,10 @@ public class TweetServiceUnitTest {
 	}
 
 	void retrieveTweetsFromUser() {
-
+		// TODO
 	}
 
 	void retrieveTweetsForFollowedUsers() {
+		// TODO
 	}
 }

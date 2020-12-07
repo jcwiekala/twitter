@@ -46,7 +46,7 @@ Page was documented using Swagger. It means that all endpoints are listed on pag
 http://localhost:8080/swagger-ui/
 
 ## Postman
-Postman collection was created with examples which are enough to run and test the application. Collection could be found in **/postman** directory.
+Postman collection was created with examples which are enough to run and test the application. Collection could be found in **/postman** directory. Executing all test cases from catalog **execute-all-scenarios** verifies main application scenarios.
 
 
 
