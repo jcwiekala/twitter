@@ -1,5 +1,5 @@
 language: java
-jdk: sapmachine:latest
+jdk: sapmachine:15
 
 script:
   - mvn clean install
