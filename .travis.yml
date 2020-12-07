@@ -3,3 +3,7 @@ jdk: oraclejdk15
 
 script:
   - mvn install
+
+branches:
+  only:
+    - master
