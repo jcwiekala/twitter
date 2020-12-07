@@ -1,6 +1,6 @@
 # Twitter project [![Build Status](https://travis-ci.com/jcwiekala/twitter.svg?branch=master)](https://travis-ci.com/jcwiekala/twitter)
 
-Project is simple Twitter like application based technologies:
+Project is simple Twitter like application based on technologies:
 * Java
 * Spring Boot
 * Spring WebFlux
