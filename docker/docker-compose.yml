@@ -1,0 +1,24 @@
+version: "3"
+services:
+  twitter:
+    image: twitter-spring-boot
+    ports:
+      - "8080:8080"
+    container_name: twitter
+    links:
+      - mongo
+    depends_on:
+      - mongo
+    networks:
+      - shared-net
+  mongo:
+    image: bitnami/mongodb
+    hostname: mongo
+    ports:
+      - "27017:27017"
+    container_name: mongo
+    networks:
+      - shared-net
+networks:
+  shared-net:
+    driver: bridge

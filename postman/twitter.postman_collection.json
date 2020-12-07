@@ -1,0 +1,993 @@
+{
+	"info": {
+		"_postman_id": "28e0f3b6-ce8a-4792-ba0f-658416ef477e",
+		"name": "twitter",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "all-scenarios",
+			"item": [
+				{
+					"name": "user-creation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"user1\",\n\t\"firstName\": \"test first name\",\n\t\"lastName\": \"test last name\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "follow-user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userId\": \"followedUser1\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/users/testUser/follow",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"users",
+								"testUser",
+								"follow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/v1/users/user1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"users",
+								"user1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tweet-creation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"text\": \"user  tweet 3\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/users/user1/tweets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"users",
+								"user1",
+								"tweets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-tweet",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"text\": \"text\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/users/user1/tweets/47d438bd-d454-447a-a655-03375ac2ca69",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"users",
+								"user1",
+								"tweets",
+								"47d438bd-d454-447a-a655-03375ac2ca69"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-tweets",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"text\": \"text\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/users/user1/tweets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"users",
+								"user1",
+								"tweets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-tweets-for-followed-users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/users/testUser/tweets/followed",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"users",
+								"testUser",
+								"tweets",
+								"followed"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "execute-all-scenarios",
+			"item": [
+				{
+					"name": "create-user1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1e0617df-1a09-4ec1-8f9b-335808b774d4",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"  pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"user1\",\n\t\"firstName\": \"test first name\",\n\t\"lastName\": \"test last name\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-user2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "537b839d-0c7e-49c2-8a5e-2a796dec2791",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"  pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"user2\",\n\t\"firstName\": \"test first name\",\n\t\"lastName\": \"test last name\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-user3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "beff1536-63ab-4d9f-a46d-76056150bc8a",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"  pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"user3\",\n\t\"firstName\": \"test first name\",\n\t\"lastName\": \"test last name\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user1-follow-user2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a7dd344f-1804-435e-a985-0f771fa17fec",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"  pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userId\": \"user2\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/users/user1/follow",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"users",
+								"user1",
+								"follow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user1-follow-user3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d1746868-1211-4a90-bb3e-e3a9f98b1aae",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"  pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userId\": \"user3\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/users/user1/follow",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"users",
+								"user1",
+								"follow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user1-create-tweet1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2e22687d-d237-4e8e-abe1-f6fa8bb98179",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"  pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"text\": \"user1 tweet 2\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/users/user1/tweets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"users",
+								"user1",
+								"tweets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user1-create-tweet2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d36e7557-c1e0-434b-ae00-d151e5da7127",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"  pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"text\": \"user1 tweet 1\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/users/user1/tweets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"users",
+								"user1",
+								"tweets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user1-create-tweet3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d06d57e5-dd8e-473e-99cf-adc5f937c376",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"  pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"text\": \"user1 tweet 3\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/users/user1/tweets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"users",
+								"user1",
+								"tweets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user2-create-tweet1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0b9002b2-c17a-400a-9241-14828d342c63",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"  pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"text\": \"user2 tweet 2\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/users/user2/tweets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"users",
+								"user2",
+								"tweets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user2-create-tweet2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1f51a3fa-da7e-4d72-a27d-7fc0124c6404",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"  pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"text\": \"user2 tweet 2\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/users/user2/tweets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"users",
+								"user2",
+								"tweets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user2-create-tweet3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "34d34748-6630-4e41-956e-34daea989923",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"  pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"text\": \"user2 tweet 3\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/users/user2/tweets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"users",
+								"user2",
+								"tweets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user3-create-tweet1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4f28340b-2b51-4bfd-a04c-f3c0e42f1de1",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"  pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"text\": \"user3 tweet 1\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/users/user3/tweets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"users",
+								"user3",
+								"tweets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user3-create-tweet2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "47158a8b-5348-4c58-92e9-3eb256abb467",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"  pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"text\": \"user3 tweet 2\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/users/user3/tweets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"users",
+								"user3",
+								"tweets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user3-create-tweet3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c883c1af-2bc1-49e6-a16f-7475feedc88a",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"  pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"text\": \"user3 tweet 3\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/users/user3/tweets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"users",
+								"user3",
+								"tweets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user1-get-tweets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e911440b-a89a-4490-88e8-5c9cd051017d",
+								"exec": [
+									"pm.test(\"Status code is 200, tweet size = 3\", function () {",
+									"  pm.response.to.have.status(200);",
+									"  pm.expect(jsonData.tweets.length).to.equal(3);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"text\": \"text\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/users/user1/tweets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"users",
+								"user1",
+								"tweets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user1-get-tweets-for-followed-users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7456bd3e-6f5d-4dce-86b8-c36b99170db9",
+								"exec": [
+									"pm.test(\"Status code is 201, tweets size = 6\", function () {",
+									"  pm.response.to.have.status(201);",
+									"  pm.expect(jsonData.tweets.length).to.equal(6);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/users/user1/tweets/followed",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"users",
+								"user1",
+								"tweets",
+								"followed"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
